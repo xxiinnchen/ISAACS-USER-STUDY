@@ -1,0 +1,15 @@
+==========Basic Parameters==========
+Interface 3DVR
+FPS: 92.33781
+Drone speed: 0.0102
+Seed: 
+Number of drones: 8
+Average time: 119.2098
+Event interval: 84
+Number of events: 71
+==========User Study Data==========
+User error: 4
+Number success events: 0
+Wrong clicks: 4
+Total clicks: 7
+ 

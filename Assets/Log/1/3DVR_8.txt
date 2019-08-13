@@ -1,0 +1,105 @@
+==========Basic Parameters==========
+Interface 3DVR
+FPS: 23.9219
+Drone speed: 0.018
+Seed: 
+Number of drones: 8
+Average time: 50.40801
+Event interval: 100
+Number of events: 10
+==========User Study Data==========
+User error: 1
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DVR
+FPS: 69.21852
+Drone speed: 0.018
+Seed: 
+Number of drones: 8
+Average time: 50.40801
+Event interval: 100
+Number of events: 49
+==========User Study Data==========
+User error: 4
+Number success events: 6
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DVR
+FPS: 23.91423
+Drone speed: 0.018
+Seed: 
+Number of drones: 8
+Average time: 50.40801
+Event interval: 100
+Number of events: 20
+==========User Study Data==========
+User error: 1
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DVR
+FPS: 20.56644
+Drone speed: 0.018
+Seed: 
+Number of drones: 8
+Average time: 50.40801
+Event interval: 100
+Number of events: 8
+==========User Study Data==========
+User error: 0
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DVR
+FPS: 66.25676
+Drone speed: 0.018
+Seed: 
+Number of drones: 8
+Average time: 50.40801
+Event interval: 100
+Number of events: 5
+==========User Study Data==========
+User error: 0
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DVR
+FPS: 67.54658
+Drone speed: 0.018
+Seed: 
+Number of drones: 8
+Average time: 50.40801
+Event interval: 100
+Number of events: 14
+==========User Study Data==========
+User error: 1
+Number success events: 0
+Wrong clicks: 2
+Total clicks: 6
+ 
+==========Basic Parameters==========
+Interface 3DVR
+FPS: 92.25943
+Drone speed: 0.018
+Seed: 
+Number of drones: 8
+Average time: 50.40801
+Event interval: 100
+Number of events: 60
+==========User Study Data==========
+User error: 8
+Number success events: 5
+Wrong clicks: 8
+Total clicks: 17
+ 

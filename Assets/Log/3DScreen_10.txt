@@ -1,0 +1,105 @@
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 37.03513
+Drone speed: 0.018
+Seed: 
+Number of drones: 10
+Average time: 52.32198
+Event interval: 84
+Number of events: 5
+==========User Study Data==========
+User error: 0
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 48.24878
+Drone speed: 0.018
+Seed: 
+Number of drones: 10
+Average time: 52.32198
+Event interval: 84
+Number of events: 20
+==========User Study Data==========
+User error: 1
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 25.96351
+Drone speed: 0.018
+Seed: 
+Number of drones: 10
+Average time: 52.32198
+Event interval: 84
+Number of events: 15
+==========User Study Data==========
+User error: 1
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 23.17307
+Drone speed: 0.018
+Seed: 
+Number of drones: 10
+Average time: 52.32198
+Event interval: 84
+Number of events: 19
+==========User Study Data==========
+User error: 1
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 25.09592
+Drone speed: 0.018
+Seed: 
+Number of drones: 10
+Average time: 52.32198
+Event interval: 84
+Number of events: 4
+==========User Study Data==========
+User error: 0
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 49.3507
+Drone speed: 0.018
+Seed: 
+Number of drones: 10
+Average time: 52.32198
+Event interval: 84
+Number of events: 51
+==========User Study Data==========
+User error: 3
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 42.81771
+Drone speed: 0.018
+Seed: 
+Number of drones: 10
+Average time: 52.32198
+Event interval: 84
+Number of events: 4
+==========User Study Data==========
+User error: 0
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
