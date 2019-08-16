@@ -4,21 +4,15 @@ using System.Collections.Generic;
 
 public class Utility : MonoBehaviour
 {
-    // Specified event and drone in n=4 scenario
-    private static List<int> DroneList = new List<int> { 1, 2, 3, 4 };
-    private static List<int> EventList = new List<int> { 1, 2, 3, 4 };
-    public static IEnumerator<int> DroneIt = DroneList.GetEnumerator();
-    public static IEnumerator<int> EventIt = EventList.GetEnumerator();
-
     // Unity constant
     public static float DELTATIME; // Used to calculate AvgTime for a drone trip
     public static float AVGTIME; // Average time to run Utility:Awake()
     public static bool IS_RND_TAKEOFF = true; //Used to choose random drone or next in interable upon assigning an event in TafficControl: Update()
 
     // game logic constant
-    public const int EXIT_TIME = 6000;  // the total time that the game is running
-    public static Dictionary<int, int> EVENT_INTERVALS = new Dictionary<int, int>() { { 5, 100 }, { 8, 100 }, { 10, 84 } , { 15, 76 }, { 20, 72 }};
-    public static Dictionary<int, int> SEED = new Dictionary<int, int>() { { 5, 100 }, { 8, 100 }, { 10, 100 }, { 15, 42 }, { 20, 42 }};
+    public const int EXIT_TIME = 180;  // the total time that the game is running
+    public static Dictionary<int, float> EVENT_INTERVALS = new Dictionary<int, float>() { { 10, 1 }, { 20, 0.5f }, { 30, 1/3f }};
+    public static Dictionary<int, int> SEED = new Dictionary<int, int>() {{ 10, 4 }, { 20, 42 }, { 30, 42 }};
 
     // drone logic constant
     public static readonly float BOUND_DIM = 1.4f, INTERACT_DIM = 2.3f, REPLAN_DIM = 2.2f;
@@ -31,18 +25,16 @@ public class Utility : MonoBehaviour
 
     public static Color Traj = new Color(1.0f, 0.1259f, 0.3736f, 1.0f);
     // shelf and event
-    // private static Vector3 ShelfBasePos = new Vector3(-3f, 10.45f, -2.15f); // left-bottom corner of the shelf
     private static Vector3 ShelfBasePos = new Vector3(26.57f, 20.41f, 1.93f); // left-bottom corner of the shelf
-    private static Vector3 ParkingBasePos = new Vector3(26.51615f, 17.572f, 20.04752f);
-    // private static Vector3 ParkingBasePos = new Vector3(26.51615f, 17.572f, 24.01752f);
-    private static float parkingInterval = 2.4f;
-    // private static float horizonInterval = -2.0f;
-    // private static float verticalInterval = 1.7f;
-    private static float horizonInterval = -2.26f;
+    //private static Vector3 ParkingBasePos = new Vector3(26.51615f, 17.572f, 20.04752f);
+    private static Vector3 ParkingBasePos = new Vector3(26.57f, 17.572f, 20.04752f);
+    private static float parkingInterval = 3.4f;
+    //private static float horizonInterval = -2.26f;
+    private static float horizonInterval = -3.9f;
     private static float verticalInterval = 1.7f;
 
-    public static Vector3[] shelves = InitShelves(ShelfBasePos, horizonInterval, verticalInterval, 4, 16);
-    public static Vector3[] parking = InitParkingLot(ParkingBasePos, parkingInterval, parkingInterval, 4, 16);
+    public static Vector3[] shelves = InitShelves(ShelfBasePos, horizonInterval, verticalInterval, 4, 10);
+    public static Vector3[] parking = InitParkingLot(ParkingBasePos, parkingInterval, parkingInterval, 4, 10);
     public static Color eventWaitingColor = new Color(255, 0, 0);
     public static Color eventIdleColor = new Color(255, 255, 255);
     //public static Material eventWaitingMat = Resources.Load("M_bear", typeof(Material)) as Material;
@@ -120,27 +112,27 @@ public class Utility : MonoBehaviour
         DELTATIME = Time.deltaTime;
         DRONE_SPEED = (INTERACT_DIM - BOUND_DIM) / INTERACT_TIME * DELTATIME;
         // cal average time
-        int units = 16;
-        int[] numOptions = new int[] { 5, 8, 10, 15, 20 };
+        //int units = 16;
+        int[] numOptions = new int[] { 10, 20, 30 };
         float[] times = new float[numOptions.Length];
         AVGTIME = 0f;
 
         for (int i = 0; i < numOptions.Length; i++)
         {
             int num = numOptions[i];
-            int rowcapacity = 5;
+            //int rowcapacity = 5;
             // int rowNeeded = num / units;
-            int parkingInterval = units / rowcapacity;
-            int rowNeeded = num / rowcapacity;
-            // int parkingInterval = 1;
+            //int parkingInterval = units / rowcapacity;
+            //int rowNeeded = num / rowcapacity;
+            //int parkingInterval = 1;
             for (int j = 0; j < num; j++)
             {
                 // Debug.Log(parkinglot[parkingInterval * i]);
-                Vector3 curPos = parking[parkingInterval * j];
+                Vector3 curPos = parking[j];
                 times[i] += CalAveTime(curPos, shelves, DELTATIME);
             }
             times[i] = times[i] / num;
-            Debug.Log("times " + i + " " + times[i]);
+            //bug.Log("times " + i + " " + times[i]);
 
             AVGTIME += times[i];
         }

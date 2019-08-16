@@ -42,17 +42,19 @@ public class TrafficControl : MonoBehaviour
     // private int numCollision = 0;
     private int systemError = 0;
     private int userError = 0;
-    private int timeCounter = 0;
-    private int cleanCounter = 0;
+    private float timeCounter = 0;
+    private float eventTimer = 0;
+    private float lastPrint = 0;
+    private float cleanCounter = 0;
     private int successEventCounter = 0;
     private int totalEventCounter = 0;
 
     // Functional Variables
     private float AVE_TIME;
     private const int EXIT_TIME = Utility.EXIT_TIME;
-    private int EVENT_INTERVAL;
+    private float EVENT_INTERVAL;
     // public const int EVENT_FREQUENCY = 100;
-    private const int CLEAN_INTERVAL = 100; // interval to clean the shattered drone
+    private const float CLEAN_INTERVAL = 2; // interval to clean the shattered drone
 
     private readonly double REPLAN_FAIL_RATE = 1;
     //private static Vector3[] parking = Utility.parking;
@@ -78,14 +80,10 @@ public class TrafficControl : MonoBehaviour
 
     public void initDrones(int num)
     {
-        int units = 16;
-        int rowcapacity = 5;
-        int parkingInterval = units / rowcapacity;
-        int rowNeeded = num / rowcapacity;
         for (int i = 0; i < num; i++)
         {
             // Debug.Log(parkinglot[parkingInterval * i]);
-            Drone newDrone = new Drone(i, parkinglot[parkingInterval * i]);
+            Drone newDrone = new Drone(i, parkinglot[i]);
             newDrone.EnableArrows = this.EnableArrows;
             newDrone.gameObjectPointer.GetComponent<DroneProperties>().EnableLineRender = this.EnableLineRender;
             dronesDict.Add(i, newDrone);
@@ -122,11 +120,16 @@ public class TrafficControl : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // canvas.SetActive(false);
         // Check if to generate new random event 
-        if (timeCounter % EVENT_INTERVAL == 0)
+        if (timeCounter - lastPrint > 1)
+        {
+            lastPrint = timeCounter;   
+        }
+
+        if (eventTimer > EVENT_INTERVAL)
         {
             if (waitingEventsId.Count + ongoingEventsId.Count < shelves.Length - 1)
             {
@@ -137,16 +140,17 @@ public class TrafficControl : MonoBehaviour
 
                 totalEventCounter++;
             }
+
         }
 
-        if (cleanCounter == CLEAN_INTERVAL && GameObject.FindGameObjectsWithTag("shatter") != null) 
+        if (cleanCounter >= CLEAN_INTERVAL && GameObject.FindGameObjectsWithTag("shatter") != null) 
         {
             foreach (GameObject shatterObject in GameObject.FindGameObjectsWithTag("shatter"))
             {
                 // Debug.Log("cleaning + " + shatterObject);
                 Destroy(shatterObject);
             }
-            cleanCounter = -1;
+            cleanCounter = 0;
         }
 
         // while available drones, pop event
@@ -157,9 +161,9 @@ public class TrafficControl : MonoBehaviour
             int e = waitingEventsId.Next();
             int d = Utility.IS_RND_TAKEOFF ? availableDronesId.NextRnd() : availableDronesId.Next();
 
-            dronesDict[d].AddEvent(eventsDict[e]);
-            // Debug.Log("assign event " + e + " to drone " + d + " with direction: " + dronesDict[d].direction);
+            Drone availableDrone = dronesDict[d];
 
+            availableDrone.AddEvent(eventsDict[e]);
             availableDronesId.Remove(d);
             workingDronesId.Add(d);
             waitingEventsId.Remove(e);
@@ -174,6 +178,10 @@ public class TrafficControl : MonoBehaviour
             bool isWarning = false;
             foreach (int j in workingDronesId)
             {
+                if (i==j)
+                {
+                    continue;
+                }
 
                 Vector3 delta = dronesDict[i].gameObjectPointer.transform.Find("pCube2").gameObject.transform.position - dronesDict[j].gameObjectPointer.transform.Find("pCube2").gameObject.transform.position;
                 float dis = delta.magnitude;
@@ -183,23 +191,29 @@ public class TrafficControl : MonoBehaviour
                 //    isWarning = false;
                 //}
 
-                if (i != j && Utility.IsLessThan(delta, Utility.CUTOFF_INTERACT))
+                if (dis < Utility.INTERACT_DIM)
                 {
                     //Debug.Log("The Drone: " + i + "and " + j + "will warning");
                     // collide
                     isWarning = true;
-                    if (Utility.IsLessThan(delta, Utility.COLLISION_BOUND))
+                    if (dis < Utility.BOUND_DIM)
                     {
                         if ( !(EnableSafeZoneTravel && dronesDict[i].safetyStatus == Drone.SafetyStatus.TO_SAFE_ZONE && dronesDict[j].safetyStatus == Drone.SafetyStatus.TO_SAFE_ZONE && dronesDict[i].safetyStatus == Drone.SafetyStatus.TO_NONSAFE_ZONE && dronesDict[j].safetyStatus == Drone.SafetyStatus.TO_NONSAFE_ZONE ) )
                         {
                             isWarning = false;
                             //Debug.Log("drone: " + i + ", " + j + " collide dealing event: " + dronesDict[i].eventId + ", " + dronesDict[j].eventId);
-                            userError++;
                             dronesDict[i].status = Drone.DroneStatus.COLLIDE;
                             dronesDict[j].status = Drone.DroneStatus.COLLIDE;
                             dronesDict[i].gameObjectPointer.GetComponent<DroneProperties>().classPointer.CollideEffect();
                             dronesDict[j].gameObjectPointer.GetComponent<DroneProperties>().classPointer.CollideEffect();
                         }
+                        if (!dronesDict[i].isCollided && ! dronesDict[j].isCollided)
+                        {
+                            userError++;
+                            Debug.LogFormat("===== Drone {0}, Drone {1} | COLLISION =====", i, j);
+                        }
+                        dronesDict[j].isCollided = true;
+                        dronesDict[i].isCollided = true;
 
                     }
                     else
@@ -209,7 +223,7 @@ public class TrafficControl : MonoBehaviour
                     }
                 }
 
-                else if (i != j && Utility.IsLessThan(delta, Utility.CUTOFF_REPLAN))
+                else if (Utility.IsLessThan(delta, Utility.CUTOFF_REPLAN))
                 {
                     //dronesDict[i].WarningEffect(false);
                     //dronesDict[j].WarningEffect(false);
@@ -235,7 +249,8 @@ public class TrafficControl : MonoBehaviour
         // move every working drone
         for (int i = 0; i < numDrones; i++)
         {
-            Drone.DroneStatus status = dronesDict[i].status;
+            Drone currDrone = dronesDict[i];
+            Drone.DroneStatus status = currDrone.status;
             if (status == Drone.DroneStatus.PARKED)
             {
                 dronesDict[i].WarningRender(false);
@@ -254,7 +269,7 @@ public class TrafficControl : MonoBehaviour
                 Event curEvent = eventsDict[dronesDict[i].eventId];
                 curEvent.markEvent(eventWaitingMat);
 
-                dronesDict[i].status = 0;
+                dronesDict[i].status = Drone.DroneStatus.PARKED;
             }
 
             //else if (status == Drone.DroneStatus.TO_SHELF || status == 3)
@@ -289,8 +304,9 @@ public class TrafficControl : MonoBehaviour
         }
 
         // update counter
-        timeCounter++;
-        cleanCounter++;
+        timeCounter += Time.fixedDeltaTime;
+        eventTimer += Time.fixedDeltaTime;
+        cleanCounter += Time.fixedDeltaTime;
 
 #if IS_USER_STUDY
         if (timeCounter >= EXIT_TIME)
