@@ -65,7 +65,7 @@ public class Utility : MonoBehaviour
                 Vector3 curPos = new Vector3(basePos.x - j * horizonInterval, basePos.y, basePos.z - i * verticalInterval);
                 */
                 // New Change: 
-                Vector3 curPos = new Vector3(basePos.x - j * horizonInterval, basePos.y + i * verticalInterval, basePos.z);
+                Vector3 curPos = new Vector3(basePos.x - j * horizonInterval, basePos.y, basePos.z - i * verticalInterval);
                 ParkingLot[curIdx] = curPos;
 
             }
