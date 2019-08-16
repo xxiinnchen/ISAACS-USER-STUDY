@@ -43,3 +43,138 @@ Number success events: 0
 Wrong clicks: 0
 Total clicks: 0
  
+==========Basic Parameters==========
+Interface 3DVR
+FPS: 8.699663
+Drone speed: 0.018
+Seed: 
+Number of drones: 20
+Average time: 52.17835
+Event interval: 0.5
+Number of events: 83
+==========User Study Data==========
+User error: 3
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DVR
+FPS: 38.78129
+Drone speed: 0.018
+Seed: 
+Number of drones: 20
+Average time: 52.17835
+Event interval: 0.5
+Number of events: 67
+==========User Study Data==========
+User error: 3
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DVR
+FPS: 61.04328
+Drone speed: 0.018
+Seed: 
+Number of drones: 20
+Average time: 52.17835
+Event interval: 0.5
+Number of events: 58
+==========User Study Data==========
+User error: 3
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DVR
+FPS: 45.07802
+Drone speed: 0.018
+Seed: 
+Number of drones: 20
+Average time: 52.17835
+Event interval: 0.5
+Number of events: 104
+==========User Study Data==========
+User error: 3
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DVR
+FPS: 41.11716
+Drone speed: 0.018
+Seed: 
+Number of drones: 20
+Average time: 52.17835
+Event interval: 0.5
+Number of events: 92
+==========User Study Data==========
+User error: 3
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DVR
+FPS: 36.1957
+Drone speed: 0.018
+Seed: 
+Number of drones: 20
+Average time: 52.17835
+Event interval: 0.5
+Number of events: 70
+==========User Study Data==========
+User error: 3
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DVR
+FPS: 15.93933
+Drone speed: 0.018
+Seed: 
+Number of drones: 20
+Average time: 52.17835
+Event interval: 0.5
+Number of events: 58
+==========User Study Data==========
+User error: 3
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DVR
+FPS: 38.09703
+Drone speed: 0.018
+Seed: 
+Number of drones: 20
+Average time: 52.17835
+Event interval: 0.5
+Number of events: 58
+==========User Study Data==========
+User error: 3
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DVR
+FPS: 66.77184
+Drone speed: 0.018
+Seed: 
+Number of drones: 20
+Average time: 52.17835
+Event interval: 0.5
+Number of events: 58
+==========User Study Data==========
+User error: 2
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 

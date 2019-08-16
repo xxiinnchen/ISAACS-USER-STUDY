@@ -31,7 +31,7 @@ public class Interaction3D : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Vector3 cameraPos = Camera.main.transform.position;
         Vector3 vector = new Vector3(Input.mousePosition.x, Input.mousePosition.y, camera.nearClipPlane);

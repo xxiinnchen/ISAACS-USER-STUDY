@@ -20,26 +20,34 @@ public class Interaction3DVR : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        // Debug.Log(controllerPos);
 
         RaycastHit destinationHit = controllerRight.GetComponent<VRTK_StraightPointerRenderer>().GetDestinationHit();
         if (controllerRight.GetComponent<VRTK_Pointer>().IsStateValid() && destinationHit.collider != null)
         {
             if (destinationHit.collider.gameObject.name.Contains("warningSphere"))
             {
+                //Debug.Log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                 curDrone = destinationHit.collider.gameObject.transform.parent.gameObject;
+                Debug.Log(curDrone);
+                bool bDown = OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger);
+                Debug.Log(bDown);
 
-                if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
+                if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
                 {
-                    if (!curDrone.GetComponent<DroneProperties>().classPointer.isPaused)
+                    Debug.Log("Clicked!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                    if (curDrone.GetComponent<DroneProperties>().classPointer.safetyStatus == Drone.SafetyStatus.NOT_SAFE) // 0: not safe zone
                     {
-                        curDrone.GetComponent<DroneProperties>().classPointer.SetDronePause();
+                        curDrone.GetComponent<DroneProperties>().classPointer.RaiseDrone();
+                    }
+                    else if (curDrone.GetComponent<DroneProperties>().classPointer.safetyStatus == Drone.SafetyStatus.SAFE) // 2: safe zone
+                    {
+                        curDrone.GetComponent<DroneProperties>().classPointer.LowerDrone();
                     }
                     else
                     {
-                        curDrone.GetComponent<DroneProperties>().classPointer.SetDroneRestart();
+                        Debug.Log("Current status: " + curDrone.GetComponent<DroneProperties>().classPointer.safetyStatus);
                     }
                 }
 
