@@ -2346,7 +2346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f161cd55d8ec642079cbe75d4e00faf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnableArrows: 1
+  EnableArrows: 0
   EnableLineRender: 1
   EnableWarning: 1
   EnableSafeZoneTravel: 1

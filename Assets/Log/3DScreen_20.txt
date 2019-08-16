@@ -973,3 +973,363 @@ Number success events: 0
 Wrong clicks: 0
 Total clicks: 0
  
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 3
+Drone speed: 0
+Seed: 
+Number of drones: 20
+Average time: 49.81934
+Event interval: 0.5
+Number of events: 46
+==========User Study Data==========
+User error: 2
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 62.2206
+Drone speed: 0.018
+Seed: 
+Number of drones: 20
+Average time: 49.81934
+Event interval: 0.5
+Number of events: 56
+==========User Study Data==========
+User error: 2
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 46.18263
+Drone speed: 0.018
+Seed: 
+Number of drones: 20
+Average time: 49.81934
+Event interval: 0.5
+Number of events: 56
+==========User Study Data==========
+User error: 2
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 50.54907
+Drone speed: 0.018
+Seed: 
+Number of drones: 20
+Average time: 49.81934
+Event interval: 0.5
+Number of events: 10
+==========User Study Data==========
+User error: 0
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 66.524
+Drone speed: 0.018
+Seed: 
+Number of drones: 20
+Average time: 49.81934
+Event interval: 0.5
+Number of events: 62
+==========User Study Data==========
+User error: 3
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 61.59309
+Drone speed: 0.018
+Seed: 
+Number of drones: 20
+Average time: 49.81934
+Event interval: 0.5
+Number of events: 61
+==========User Study Data==========
+User error: 2
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 50.93118
+Drone speed: 0.018
+Seed: 
+Number of drones: 20
+Average time: 49.81934
+Event interval: 0.5
+Number of events: 49
+==========User Study Data==========
+User error: 1
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 71.26078
+Drone speed: 0.018
+Seed: 
+Number of drones: 20
+Average time: 49.81934
+Event interval: 0.5
+Number of events: 62
+==========User Study Data==========
+User error: 2
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 69.29612
+Drone speed: 0.018
+Seed: 
+Number of drones: 20
+Average time: 49.81934
+Event interval: 0.5
+Number of events: 60
+==========User Study Data==========
+User error: 2
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 59.39196
+Drone speed: 0.018
+Seed: 
+Number of drones: 20
+Average time: 49.81934
+Event interval: 0.5
+Number of events: 56
+==========User Study Data==========
+User error: 2
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 61.81106
+Drone speed: 0.018
+Seed: 
+Number of drones: 20
+Average time: 49.81934
+Event interval: 0.5
+Number of events: 46
+==========User Study Data==========
+User error: 0
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 33.0962
+Drone speed: 0.018
+Seed: 
+Number of drones: 20
+Average time: 49.81934
+Event interval: 0.5
+Number of events: 53
+==========User Study Data==========
+User error: 2
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 15.18989
+Drone speed: 0.018
+Seed: 
+Number of drones: 20
+Average time: 49.81934
+Event interval: 0.5
+Number of events: 0
+==========User Study Data==========
+User error: 0
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 59.843
+Drone speed: 0.018
+Seed: 
+Number of drones: 20
+Average time: 49.81934
+Event interval: 0.5
+Number of events: 5
+==========User Study Data==========
+User error: 0
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 71.26633
+Drone speed: 0.018
+Seed: 
+Number of drones: 20
+Average time: 49.81934
+Event interval: 0.5
+Number of events: 16
+==========User Study Data==========
+User error: 0
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 60.73636
+Drone speed: 0.018
+Seed: 
+Number of drones: 20
+Average time: 49.81934
+Event interval: 0.5
+Number of events: 65
+==========User Study Data==========
+User error: 2
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 3
+Drone speed: 0.018
+Seed: 
+Number of drones: 20
+Average time: 49.81934
+Event interval: 0.5
+Number of events: 22
+==========User Study Data==========
+User error: 1
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 75.00098
+Drone speed: 0.018
+Seed: 
+Number of drones: 20
+Average time: 49.81934
+Event interval: 0.5
+Number of events: 28
+==========User Study Data==========
+User error: 1
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 75.00098
+Drone speed: 0.018
+Seed: 
+Number of drones: 20
+Average time: 49.81934
+Event interval: 0.5
+Number of events: 40
+==========User Study Data==========
+User error: 2
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 75.00509
+Drone speed: 0.018
+Seed: 
+Number of drones: 20
+Average time: 49.81934
+Event interval: 0.5
+Number of events: 30
+==========User Study Data==========
+User error: 1
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 74.99893
+Drone speed: 0.018
+Seed: 
+Number of drones: 20
+Average time: 49.81934
+Event interval: 0.5
+Number of events: 54
+==========User Study Data==========
+User error: 2
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: Infinity
+Drone speed: 0.018
+Seed: 
+Number of drones: 20
+Average time: 49.81934
+Event interval: 0.5
+Number of events: 76
+==========User Study Data==========
+User error: 4
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 71.51166
+Drone speed: 0.018
+Seed: 
+Number of drones: 20
+Average time: 49.81934
+Event interval: 0.5
+Number of events: 38
+==========User Study Data==========
+User error: 2
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 75.00509
+Drone speed: 0.018
+Seed: 
+Number of drones: 20
+Average time: 49.81934
+Event interval: 0.5
+Number of events: 161
+==========User Study Data==========
+User error: 4
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 

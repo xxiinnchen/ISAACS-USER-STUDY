@@ -73,3 +73,18 @@ Number success events: 0
 Wrong clicks: 0
 Total clicks: 0
  
+==========Basic Parameters==========
+Interface 2DScreen
+FPS: 128.947
+Drone speed: 0.018
+Seed: 
+Number of drones: 20
+Average time: 49.81934
+Event interval: 0.5
+Number of events: 58
+==========User Study Data==========
+User error: 2
+Number success events: 0
+Wrong clicks: 0
+Total clicks: 0
+ 

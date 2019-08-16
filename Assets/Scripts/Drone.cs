@@ -309,6 +309,7 @@ public class Drone {
         }
     }
 
+    /*
     public void CollideEffect()
     {
         shatter = this.gameObjectPointer.GetComponent<DroneProperties>().shatteredDrone;
@@ -318,7 +319,7 @@ public class Drone {
         Utility.DeleteChild(this.gameObjectPointer, "Line");
         GameObject shatterObject = Object.Instantiate(shatter, this.gameObjectPointer.transform.position, this.gameObjectPointer.transform.rotation);
         shatterObject.tag = "shatter";
-    }
+    }*/
 
     public void WarningRender(bool collided)
     {

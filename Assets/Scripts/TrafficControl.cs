@@ -131,6 +131,7 @@ public class TrafficControl : MonoBehaviour
 
         if (eventTimer > EVENT_INTERVAL)
         {
+            eventTimer = 0;
             if (waitingEventsId.Count + ongoingEventsId.Count < shelves.Length - 1)
             {
                 int newIdx = GenRandEvent();
@@ -143,6 +144,7 @@ public class TrafficControl : MonoBehaviour
 
         }
 
+        /*
         if (cleanCounter >= CLEAN_INTERVAL && GameObject.FindGameObjectsWithTag("shatter") != null) 
         {
             foreach (GameObject shatterObject in GameObject.FindGameObjectsWithTag("shatter"))
@@ -151,7 +153,7 @@ public class TrafficControl : MonoBehaviour
                 Destroy(shatterObject);
             }
             cleanCounter = 0;
-        }
+        }*/
 
         // while available drones, pop event
         // assign drone dst, to-do event, remove from avail, add to working drones
@@ -190,7 +192,10 @@ public class TrafficControl : MonoBehaviour
                 //{
                 //    isWarning = false;
                 //}
-
+                if (dronesDict[i].gameObjectPointer.activeSelf == false || dronesDict[j].gameObjectPointer.activeSelf == false)
+                {
+                    continue;
+                }
                 if (dis < Utility.INTERACT_DIM)
                 {
                     //Debug.Log("The Drone: " + i + "and " + j + "will warning");
@@ -204,8 +209,8 @@ public class TrafficControl : MonoBehaviour
                             //Debug.Log("drone: " + i + ", " + j + " collide dealing event: " + dronesDict[i].eventId + ", " + dronesDict[j].eventId);
                             dronesDict[i].status = Drone.DroneStatus.COLLIDE;
                             dronesDict[j].status = Drone.DroneStatus.COLLIDE;
-                            dronesDict[i].gameObjectPointer.GetComponent<DroneProperties>().classPointer.CollideEffect();
-                            dronesDict[j].gameObjectPointer.GetComponent<DroneProperties>().classPointer.CollideEffect();
+                            //dronesDict[i].gameObjectPointer.GetComponent<DroneProperties>().classPointer.CollideEffect();
+                            //dronesDict[j].gameObjectPointer.GetComponent<DroneProperties>().classPointer.CollideEffect();
                         }
                         if (!dronesDict[i].isCollided && ! dronesDict[j].isCollided)
                         {
@@ -258,6 +263,7 @@ public class TrafficControl : MonoBehaviour
             }
             else if (status == Drone.DroneStatus.COLLIDE)
             {
+                /*
                 dronesDict[i].isPaused = false;
                 dronesDict[i].WarningRender(false);
                 dronesDict[i].curPos = dronesDict[i].parkingPos;
@@ -270,6 +276,11 @@ public class TrafficControl : MonoBehaviour
                 curEvent.markEvent(eventWaitingMat);
 
                 dronesDict[i].status = Drone.DroneStatus.PARKED;
+                */
+
+                // new
+                currDrone.gameObjectPointer.SetActive(false);
+
             }
 
             //else if (status == Drone.DroneStatus.TO_SHELF || status == 3)
