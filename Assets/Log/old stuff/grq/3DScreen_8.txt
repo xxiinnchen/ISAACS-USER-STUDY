@@ -1,0 +1,16 @@
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 60.36096
+Drone speed: 0.0102
+Seed: 
+Number of drones: 8
+Average time: 74.0226
+Event interval: 84
+Number of events: 72
+==========User Study Data==========
+User error: 1
+Number success events: 6
+Wrong clicks: 23
+Total clicks: 30
+
+ 

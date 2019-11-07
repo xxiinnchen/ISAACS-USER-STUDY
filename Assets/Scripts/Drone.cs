@@ -1,13 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using System;
 
-public class Drone {
+public class Drone
+{
 
     // Drone Position Variables 
     public Vector3 parkingPos;
     public Vector3 hoverPos;
     public Vector3 eventPos;
+    public Vector3 spawnPos;
     public Vector3 curPos;
     public Vector3 dstPos;
     public Vector3 direction;
@@ -20,6 +24,12 @@ public class Drone {
     public float SPEED;
     public int droneId;
     public int eventId;
+    public int eventNo;
+    public int collionDroneId = -2;
+    public int nextEvent = -2;
+    public float tripTime = 0;
+    public bool safe = false;
+    public float collidesAtTime;
     public bool isPaused;
 
     public bool EnableArrows = true;
@@ -41,15 +51,15 @@ public class Drone {
         PARKED = 0,
         TAKEOFF = 1,
         TO_SHELF = 2,
-        COLLIDE = 3
+        DELAY = 3,
     }
     public DroneStatus status;
     public bool isCollided;
     public bool isWarning;
 
     // public static float SPEED = Utility.DRONE_SPEED;   // private static readonly float SPEED = 0.07f;
-    
-     // Pause Variables
+
+    // Pause Variables
     public static int pauseTime = 100;
     public static float clickTime = 0;
     public static float wrongClickTime = 0;
@@ -78,7 +88,7 @@ public class Drone {
         // create game object
         // Debug.Log("Created new drone with id: " + droneId);
         GameObject baseObject = TrafficControl.worldobject.GetComponent<TrafficControl>().droneBaseObject;
-        gameObjectPointer = Object.Instantiate(baseObject, initPos, Quaternion.identity);
+        gameObjectPointer = UnityEngine.Object.Instantiate(baseObject, initPos, Quaternion.identity);
         gameObjectPointer.GetComponent<DroneProperties>().classPointer = this;
 
         gameObjectPointer.name = string.Concat("Drone", droneId.ToString());
@@ -87,14 +97,27 @@ public class Drone {
         gameObjectPointer.transform.parent = TrafficControl.worldobject.transform;
 
         GameObject arrow1 = gameObjectPointer.GetComponent<DroneProperties>().Arrows;
-        arrows1 = Object.Instantiate(arrow1, initPos, Quaternion.Euler(0f, -90f, 0f));
+        arrows1 = UnityEngine.Object.Instantiate(arrow1, initPos, Quaternion.Euler(0f, -90f, 0f));
         arrows1.transform.parent = TrafficControl.worldobject.transform;
         GameObject arrow2 = gameObjectPointer.GetComponent<DroneProperties>().Arrows;
-        arrows2 = Object.Instantiate(arrow2, initPos, Quaternion.Euler(0f, -270f, 0f));
+        arrows2 = UnityEngine.Object.Instantiate(arrow2, initPos, Quaternion.Euler(0f, -270f, 0f));
         arrows2.transform.parent = TrafficControl.worldobject.transform;
         arrows1.SetActive(false);
         arrows2.SetActive(false);
         ring_2 = gameObjectPointer.transform.Find("warningSphere").gameObject;
+
+
+        try
+        {
+            GameObject textHelperChild = this.gameObjectPointer.transform.Find("Text Helper").gameObject;
+            TextMeshPro textHelper = textHelperChild.GetComponent<TextMeshPro>();
+            textHelper.SetText(this.droneId.ToString());
+        }
+        catch (NullReferenceException e)
+        {
+            //Debug.Log(e);
+            Debug.Log("No TextMeshPro child.");
+        }
 
     }
 
@@ -161,7 +184,8 @@ public class Drone {
     /// end of whole trip: 2;
     /// otherwise: -1 
     /// </returns>
-    public MoveStatus Move(){
+    public MoveStatus Move()
+    {
         MoveStatus flag = MoveStatus.OTHER;
         if (isPaused)
         {
@@ -196,7 +220,7 @@ public class Drone {
             }
         }
         else if (safetyStatus == SafetyStatus.SAFE)
-        {   
+        {
             //Debug.Log("Safe zone");
             if (Time.time - safetyFlightStartTime > safetyTime)
             {
@@ -213,23 +237,23 @@ public class Drone {
         else if (safetyStatus == SafetyStatus.TO_NONSAFE_ZONE)
         {
             //Debug.Log("Non-safe zone");
-            if(curPos.y < 30.0f)
+            if (curPos.y < 30.0f)
             {
                 safetyStatus = SafetyStatus.NOT_SAFE;
             }
         }
 
 
-            // End of New code
+        // End of New code
 
 
-            flag = MoveStatus.OTHER;
+        flag = MoveStatus.OTHER;
 
 
         if (status != DroneStatus.PARKED && Utility.IsLessThan(curPos - dstPos, epsilon))
         {
             // Debug.Log(status + " " + curPos + " " + dstPos + " " + hoverPos + " " + parkingPos + " " + eventPos);
-        
+
             if (Utility.IsLessThan(dstPos - hoverPos, epsilon))
             {
                 if (status == DroneStatus.TAKEOFF)  // end of takeoff
@@ -241,7 +265,7 @@ public class Drone {
                 }
             }
             else if (Utility.IsLessThan(dstPos - eventPos, epsilon)) // Drone Reached the event
-            {   
+            {
                 // cur_s = 2 --> 3
                 // end of to_shelf trip
                 status = DroneStatus.PARKED;
@@ -268,7 +292,7 @@ public class Drone {
         Vector3 basePoint = gameObjectPointer.transform.Find("pCube3").gameObject.transform.position;
         //Quaternion q = Quaternion.LookRotation(-direction, baseVector);
         Quaternion q = Quaternion.FromToRotation(new Vector3(0f, 0f, -1f), direction);
-     // Debug.Log(q);
+        // Debug.Log(q);
         arrows1.transform.rotation = q * Quaternion.Euler(0f, -90f, 0f);
         arrows2.transform.rotation = q * Quaternion.Euler(0f, -90f, 0f);
     }
@@ -301,10 +325,12 @@ public class Drone {
     public void DroneCollideRender(bool collided)
     {
         ring = this.gameObjectPointer.transform.Find("protectionSphere").gameObject;
-        if (collided == true){
+        if (collided == true)
+        {
             ring.GetComponent<MeshRenderer>().material = this.gameObjectPointer.GetComponent<DroneProperties>().collideMaterial;
         }
-        else {
+        else
+        {
             ring.GetComponent<MeshRenderer>().material = this.gameObjectPointer.GetComponent<DroneProperties>().landingMaterial;
         }
     }
@@ -341,10 +367,43 @@ public class Drone {
         foreach (Vector3 shelfGrid in shelf)
         {
             float curDist = 2 * Utility.CalDistance(this.parkingPos, shelfGrid);
-            numFrame += curDist / SPEED; 
+            numFrame += curDist / SPEED;
         }
 
         return numFrame * deltaTime / shelf.Length;
+    }
+
+    public void TriggerCollision(Collider other)
+    {
+        //Debug.Log("Trigger for drone " + droneId);
+
+        try
+        {
+            GameObject droneB_gameObject = GameObject.Find(other.gameObject.name);
+            DroneProperties droneB_droneProperties = droneB_gameObject.GetComponent<DroneProperties>();
+            Drone droneB = droneB_droneProperties.classPointer;
+
+            if (!isCollided &&  droneB.droneId == collionDroneId)
+            {
+                /*
+                GameObject droneA_textHelperChild = this.gameObjectPointer.transform.Find("Text Helper").gameObject;
+                TextMeshPro droneA_textHelper = droneA_textHelperChild.GetComponent<TextMeshPro>();
+                droneA_textHelper.color = Color.red;
+                //Debug.LogFormat("Collision for {0} and {1}", droneId, droneB.droneId);
+                */
+                TrafficControl.worldobject.GetComponent<TrafficControl>().userErrorColliders += 0.5f;
+                isCollided = true;
+                //droneB.isCollided = true;
+
+                Debug.LogFormat("===== Drone {0}, Drone {1} | COLLISION ", this.droneId, droneB.droneId);
+   
+            }
+        }
+        catch (NullReferenceException)
+        {
+            Debug.LogFormat("Unable to find {0}", other.name);
+        }
+
     }
 
 }

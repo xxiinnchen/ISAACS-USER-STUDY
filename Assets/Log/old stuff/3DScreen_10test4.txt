@@ -1,0 +1,448 @@
+CURRENT TIME: 11/6/2019 5:38:09 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 3
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 0
+==========User Study Data==========
+System error: 0
+User error: 0
+Number success events: 0
+ 
+CURRENT TIME: 11/6/2019 5:39:26 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 3
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 0
+==========User Study Data==========
+System error: 0
+User error: 0
+Number success events: 0
+ 
+CURRENT TIME: 11/6/2019 5:39:32 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 3
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 0
+==========User Study Data==========
+System error: 0
+User error: 0
+Number success events: 0
+ 
+CURRENT TIME: 11/6/2019 5:40:57 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 3
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 0
+==========User Study Data==========
+System error: 0
+User error: 0
+Number success events: 0
+ 
+CURRENT TIME: 11/6/2019 5:42:27 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 3
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 0
+==========User Study Data==========
+System error: 0
+User error: 0
+Number success events: 0
+ 
+CURRENT TIME: 11/6/2019 5:44:16 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 3
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 0
+==========User Study Data==========
+System error: 0
+User error: 0
+Number success events: 0
+ 
+CURRENT TIME: 11/6/2019 5:49:50 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 3.026165
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 0
+==========User Study Data==========
+System error: 0
+User error: 0
+Number success events: 0
+ 
+CURRENT TIME: 11/6/2019 5:51:03 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 3
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 0
+==========User Study Data==========
+System error: 0
+User error: 0
+Number success events: 0
+ 
+CURRENT TIME: 11/6/2019 5:51:07 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 3
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 0
+==========User Study Data==========
+System error: 0
+User error: 0
+Number success events: 0
+ 
+CURRENT TIME: 11/6/2019 5:52:34 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 3
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 0
+==========User Study Data==========
+System error: 0
+User error: 0
+Number success events: 0
+ 
+CURRENT TIME: 11/6/2019 5:53:24 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 3
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 0
+==========User Study Data==========
+System error: 0
+User error: 0
+Number success events: 0
+ 
+CURRENT TIME: 11/6/2019 5:57:13 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: Infinity
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 10
+==========User Study Data==========
+System error: 478
+User error: 136
+Number success events: 0
+ 
+CURRENT TIME: 11/6/2019 5:57:56 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 60.0006
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 13
+==========User Study Data==========
+System error: 2982
+User error: 1
+Number success events: 5
+ 
+CURRENT TIME: 11/6/2019 5:59:10 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 59.99916
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 4
+==========User Study Data==========
+System error: 0
+User error: 0
+Number success events: 0
+ 
+CURRENT TIME: 11/6/2019 6:01:34 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 58.81211
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 20
+==========User Study Data==========
+System error: 3478
+User error: 2
+Number success events: 6
+ 
+CURRENT TIME: 11/6/2019 6:21:44 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 60.00348
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 27
+==========User Study Data==========
+System error: 6070
+User error: 2
+Number success events: 19
+ 
+CURRENT TIME: 11/6/2019 6:22:31 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 60.00168
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 5
+==========User Study Data==========
+System error: 0
+User error: 0
+Number success events: 0
+ 
+CURRENT TIME: 11/6/2019 6:22:48 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 59.99988
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 10
+==========User Study Data==========
+System error: 584
+User error: 0
+Number success events: 0
+ 
+CURRENT TIME: 11/6/2019 6:23:11 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 60.00132
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 10
+==========User Study Data==========
+System error: 536
+User error: 0
+Number success events: 0
+ 
+CURRENT TIME: 11/6/2019 6:25:23 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 60.00276
+Drone speed: 0
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 10
+==========User Study Data==========
+System error: 0
+User error: 0
+Number success events: 0
+ 
+CURRENT TIME: 11/6/2019 6:25:47 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 58.82457
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 10
+==========User Study Data==========
+System error: 0
+User error: 0
+Number success events: 0
+ 
+CURRENT TIME: 11/6/2019 6:28:19 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 60.00168
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 16
+==========User Study Data==========
+System error: 0
+User error: 0
+Number success events: 8
+ 
+CURRENT TIME: 11/6/2019 6:29:16 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 58.82595
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 10
+==========User Study Data==========
+System error: 962
+User error: 0
+Number success events: 0
+ 
+CURRENT TIME: 11/6/2019 6:30:47 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 58.82595
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 10
+==========User Study Data==========
+System error: 2550
+User error: 0
+Number success events: 0
+ 
+CURRENT TIME: 11/6/2019 6:32:22 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 59.9952
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 10
+==========User Study Data==========
+System error: 780
+User error: 0
+Number success events: 0
+ 
+CURRENT TIME: 11/6/2019 6:33:39 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 60.00384
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 20
+==========User Study Data==========
+System error: 3380
+User error: 2
+Number success events: 6
+ 
+CURRENT TIME: 11/6/2019 6:35:50 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 60.0024
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 20
+==========User Study Data==========
+System error: 3452
+User error: 0
+Number success events: 4
+ 
+CURRENT TIME: 11/6/2019 6:37:22 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 60.00096
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 10
+==========User Study Data==========
+System error: 0
+User error: 115
+Number success events: 0
+ 
+CURRENT TIME: 11/6/2019 6:41:14 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 58.84603
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 29
+==========User Study Data==========
+System error: 0
+User error: 0
+Number success events: 19
+ 
+CURRENT TIME: 11/6/2019 6:44:37 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 58.8443
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 10
+==========User Study Data==========
+System error: 0
+User error: 0
+Number success events: 0
+ 
+CURRENT TIME: 11/6/2019 6:44:54 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 58.82734
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 10
+==========User Study Data==========
+System error: 0
+User error: 0
+Number success events: 0
+ 
+CURRENT TIME: 11/6/2019 6:45:27 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 59.99844
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 10
+==========User Study Data==========
+System error: 0
+User error: 0
+Number success events: 0
+ 

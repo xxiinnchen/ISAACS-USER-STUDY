@@ -1,0 +1,14 @@
+CURRENT TIME: 11/6/2019 6:47:25 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 60.00384
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 10
+==========User Study Data==========
+System error: 0
+User error: 0
+Number success events: 0
+ 

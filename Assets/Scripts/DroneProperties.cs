@@ -64,4 +64,12 @@ public class DroneProperties : MonoBehaviour
         Object.Destroy(myLine, duration);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "drone")
+        {
+            classPointer.TriggerCollision(other);
+        }
+    }
+
 }

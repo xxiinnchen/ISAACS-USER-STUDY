@@ -6,7 +6,7 @@ public class OrderedSet<T>
     private readonly HashSet<T> m_HashSet;
     private readonly IList<T> m_List;
 
-    private static System.Random rnd = new System.Random(42);
+    public System.Random rnd = new System.Random();
 
     public int Count
     {

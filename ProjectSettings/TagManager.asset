@@ -35,6 +35,10 @@ TagManager:
   - Pivot
   - Camera
   - Line
+  - ExcludeTeleport
+  - Cart
+  - TeleportIgnore
+  - drone
   layers:
   - Default
   - TransparentFX
