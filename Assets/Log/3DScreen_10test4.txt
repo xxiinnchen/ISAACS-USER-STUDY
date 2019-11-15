@@ -1244,3 +1244,17 @@ System error: 1809
 User error: 0
 Number success events: 0
  
+CURRENT TIME: 11/15/2019 2:43:28 PM
+==========Basic Parameters==========
+Interface 3DScreen
+FPS: 59.95996
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 10
+==========User Study Data==========
+System error: 2235
+User error: 0
+Number success events: 0
+ 

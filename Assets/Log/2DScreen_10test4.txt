@@ -124,3 +124,73 @@ System error: 1948
 User error: 0
 Number success events: 0
  
+CURRENT TIME: 11/15/2019 2:41:00 PM
+==========Basic Parameters==========
+Interface 2DScreen
+FPS: 27.28472
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 10
+==========User Study Data==========
+System error: 418
+User error: 0
+Number success events: 0
+ 
+CURRENT TIME: 11/15/2019 2:41:16 PM
+==========Basic Parameters==========
+Interface 2DScreen
+FPS: 39.0998
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 10
+==========User Study Data==========
+System error: 3112
+User error: 0
+Number success events: 0
+ 
+CURRENT TIME: 11/15/2019 2:42:08 PM
+==========Basic Parameters==========
+Interface 2DScreen
+FPS: 57.59827
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 10
+==========User Study Data==========
+System error: 2842
+User error: 0
+Number success events: 0
+ 
+CURRENT TIME: 11/15/2019 2:42:42 PM
+==========Basic Parameters==========
+Interface 2DScreen
+FPS: 41.05445
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 10
+==========User Study Data==========
+System error: 1048
+User error: 0
+Number success events: 0
+ 
+CURRENT TIME: 11/15/2019 2:42:50 PM
+==========Basic Parameters==========
+Interface 2DScreen
+FPS: 22.47954
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 10
+==========User Study Data==========
+System error: 892
+User error: 0
+Number success events: 0
+ 
