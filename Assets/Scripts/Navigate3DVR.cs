@@ -7,18 +7,6 @@ public class Navigate3DVR : MonoBehaviour
     //This is the speed at which the map can be moved at
     public float speed = 1000;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //MoveCamera();
-    }
-
     private void MoveCamera()
     {
         float moveX = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).x;

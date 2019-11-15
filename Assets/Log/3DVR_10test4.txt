@@ -1,0 +1,70 @@
+CURRENT TIME: 11/15/2019 7:11:49 AM
+==========Basic Parameters==========
+Interface 3DVR
+FPS: 74.5462
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 21
+==========User Study Data==========
+System error: 18076
+User error: 0
+Number success events: 9
+ 
+CURRENT TIME: 11/15/2019 7:15:41 AM
+==========Basic Parameters==========
+Interface 3DVR
+FPS: 75.2219
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 20
+==========User Study Data==========
+System error: 14036
+User error: 0
+Number success events: 8
+ 
+CURRENT TIME: 11/15/2019 7:19:46 AM
+==========Basic Parameters==========
+Interface 3DVR
+FPS: 69.51879
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 20
+==========User Study Data==========
+System error: 25400
+User error: 0
+Number success events: 12
+ 
+CURRENT TIME: 11/15/2019 7:21:08 AM
+==========Basic Parameters==========
+Interface 3DVR
+FPS: 146.34
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 10
+==========User Study Data==========
+System error: 1732
+User error: 0
+Number success events: 0
+ 
+CURRENT TIME: 11/15/2019 7:22:06 AM
+==========Basic Parameters==========
+Interface 3DVR
+FPS: 68.38635
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 20
+==========User Study Data==========
+System error: 12572
+User error: 0
+Number success events: 8
+ 

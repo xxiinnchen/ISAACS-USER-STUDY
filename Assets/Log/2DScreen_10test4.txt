@@ -26,3 +26,101 @@ System error: 0
 User error: 0
 Number success events: 0
  
+CURRENT TIME: 11/15/2019 7:01:54 AM
+==========Basic Parameters==========
+Interface 2DScreen
+FPS: 57.69275
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 0
+==========User Study Data==========
+System error: 0
+User error: 0
+Number success events: 0
+ 
+CURRENT TIME: 11/15/2019 7:04:09 AM
+==========Basic Parameters==========
+Interface 2DScreen
+FPS: 58.68717
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 10
+==========User Study Data==========
+System error: 6292
+User error: 0
+Number success events: 0
+ 
+CURRENT TIME: 11/15/2019 7:06:55 AM
+==========Basic Parameters==========
+Interface 2DScreen
+FPS: 60.00168
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 10
+==========User Study Data==========
+System error: 1306
+User error: 0
+Number success events: 0
+ 
+CURRENT TIME: 11/15/2019 7:07:28 AM
+==========Basic Parameters==========
+Interface 2DScreen
+FPS: 59.52771
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 10
+==========User Study Data==========
+System error: 1318
+User error: 0
+Number success events: 0
+ 
+CURRENT TIME: 11/15/2019 7:08:00 AM
+==========Basic Parameters==========
+Interface 2DScreen
+FPS: 60.00096
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 10
+==========User Study Data==========
+System error: 3844
+User error: 0
+Number success events: 0
+ 
+CURRENT TIME: 11/15/2019 7:08:40 AM
+==========Basic Parameters==========
+Interface 2DScreen
+FPS: 41.03103
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 10
+==========User Study Data==========
+System error: 976
+User error: 0
+Number success events: 0
+ 
+CURRENT TIME: 11/15/2019 7:08:55 AM
+==========Basic Parameters==========
+Interface 2DScreen
+FPS: 59.93084
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 10
+==========User Study Data==========
+System error: 1948
+User error: 0
+Number success events: 0
+ 

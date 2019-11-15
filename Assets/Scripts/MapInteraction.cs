@@ -96,9 +96,9 @@ public class MapInteraction : MonoBehaviour
         {
             mapState = MapState.IDLE; // Controller input overrides manual
             float angle = deltaX * rotSpeed * 360 * Time.fixedDeltaTime;
-            Debug.Log("deltaX: " + deltaX);
-            Debug.Log("rotSpeed:" + rotSpeed);
-            Debug.Log("Time.fixedDeltaTime" + Time.fixedDeltaTime);
+            //Debug.Log("deltaX: " + deltaX);
+            //Debug.Log("rotSpeed:" + rotSpeed);
+            //Debug.Log("Time.fixedDeltaTime" + Time.fixedDeltaTime);
             transform.RotateAround(pivot.transform.position, Vector3.up, angle);
             if (rotatingTable)
             {

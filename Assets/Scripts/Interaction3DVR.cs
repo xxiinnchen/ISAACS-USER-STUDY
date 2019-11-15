@@ -28,11 +28,12 @@ public class Interaction3DVR : MonoBehaviour
         {
             if (destinationHit.collider.gameObject.name.Contains("warningSphere"))
             {
-                //Debug.Log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                Debug.Log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                 curDrone = destinationHit.collider.gameObject.transform.parent.gameObject;
                 Debug.Log(curDrone);
                 bool bDown = OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger);
                 Debug.Log(bDown);
+                Debug.Log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
                 if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
                 {
