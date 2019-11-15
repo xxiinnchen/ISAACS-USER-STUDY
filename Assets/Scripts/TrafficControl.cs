@@ -231,19 +231,12 @@ public class TrafficControl : MonoBehaviour
 
 
         // Populate waitingEventsID_flightplan
-        Debug.Log("------");
-        Debug.Log(flightPlan.Count);
+
         for(int i = 0; i < flightPlan.Count; i++)
         {
             CsvRow tempEvent = flightPlan[i];
             waitingEventsID_Flightplan.Enqueue(tempEvent);
-            Debug.Log(waitingEventsID_Flightplan.Count);
-
         }
-        Debug.Log("------");
-        Debug.Log(waitingEventsID_Flightplan.Count);
-        Debug.Log("------");
-
 
         // Not sure what this done
         AVE_TIME = Utility.AVGTIME;
