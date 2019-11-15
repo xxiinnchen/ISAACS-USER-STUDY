@@ -8023,6 +8023,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2733352072706216262}
     m_Modifications:
+    - target: {fileID: 2021667737856449860, guid: 677e84751a2124398a6066194bda4302,
+        type: 3}
+      propertyPath: m_Name
+      value: protectionSphere
+      objectReference: {fileID: 0}
     - target: {fileID: 7024310701176290065, guid: 677e84751a2124398a6066194bda4302,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8077,11 +8082,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2021667737856449860, guid: 677e84751a2124398a6066194bda4302,
-        type: 3}
-      propertyPath: m_Name
-      value: protectionSphere
       objectReference: {fileID: 0}
     - target: {fileID: 4839210096943623296, guid: 677e84751a2124398a6066194bda4302,
         type: 3}
@@ -8182,6 +8182,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2733352072706216262}
     m_Modifications:
+    - target: {fileID: 2021667737856449860, guid: 677e84751a2124398a6066194bda4302,
+        type: 3}
+      propertyPath: m_Name
+      value: warningSphere
+      objectReference: {fileID: 0}
     - target: {fileID: 7024310701176290065, guid: 677e84751a2124398a6066194bda4302,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8251,11 +8256,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.16199988
-      objectReference: {fileID: 0}
-    - target: {fileID: 2021667737856449860, guid: 677e84751a2124398a6066194bda4302,
-        type: 3}
-      propertyPath: m_Name
-      value: warningSphere
       objectReference: {fileID: 0}
     - target: {fileID: 4839210096943623296, guid: 677e84751a2124398a6066194bda4302,
         type: 3}

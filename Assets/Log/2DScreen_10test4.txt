@@ -12,3 +12,17 @@ System error: 0
 User error: 0
 Number success events: 0
  
+CURRENT TIME: 11/14/2019 10:46:13 PM
+==========Basic Parameters==========
+Interface 2DScreen
+FPS: 99.15422
+Drone speed: 0.018
+Number of drones: 10
+Average time: 0
+Event interval: 1
+Number of events: 0
+==========User Study Data==========
+System error: 0
+User error: 0
+Number success events: 0
+ 

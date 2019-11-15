@@ -42,7 +42,7 @@ public class Interaction3D : MonoBehaviour
         //Debug.Log(ray.origin);
         //Debug.Log(ray.direction);
 
-        laserLine.enabled = false;
+        laserLine.enabled = true;
         laserLine.SetPosition(0, ray.origin);
         laserLine.SetPosition(1, ray.origin + ray.direction * range);
 

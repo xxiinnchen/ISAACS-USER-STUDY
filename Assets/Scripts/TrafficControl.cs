@@ -64,7 +64,7 @@ public class TrafficControl : MonoBehaviour
     public static Dictionary<int, float> eventColTimeDict = new Dictionary<int, float>();
 
     public OrderedSet<int> waitingEventsId = new OrderedSet<int>();
-    public OrderedSet<CsvRow> waitingEventsID_Flightplan = new OrderedSet<CsvRow>();
+    public Queue<CsvRow> waitingEventsID_Flightplan = new Queue<CsvRow>();
     public HashSet<int> ongoingEventsId = new HashSet<int>();
 
     public OrderedSet<int> availableDronesId = new OrderedSet<int>();
@@ -112,52 +112,6 @@ public class TrafficControl : MonoBehaviour
 
         }
     }
-
-    /*
-    public static float strToFloat(string str)
-    {
-        float numVal = -1;
-        try
-        {
-            if (str == "none")
-            {
-                return -1;
-            }
-
-            numVal = float.Parse(str);
-        }
-        catch (FormatException e)
-        {
-            Debug.Log("Invalid Seed file." + e);
-        }
-        reader.Close();
-
-        return numVal;
-    }
-
-    private List<string[]> rowData = new List<string[]>();
-
-    public static int strToInt(string str)
-    {
-        int numVal = -1;
-        try
-        {
-            if (str == "none")
-            {
-                return -1;
-            }
-
-            numVal = Int32.Parse(str);
-        }
-        catch (FormatException e)
-        {
-            Debug.Log("Invalid Seed file." + e);
-        }
-        reader.Close();
-
-        return numVal;
-    }
-    */
 
     public void printEvents(Drone availableDrone)
     {
@@ -275,6 +229,22 @@ public class TrafficControl : MonoBehaviour
         // Read flightpath CSV
         ReadCSV();
 
+
+        // Populate waitingEventsID_flightplan
+        Debug.Log("------");
+        Debug.Log(flightPlan.Count);
+        for(int i = 0; i < flightPlan.Count; i++)
+        {
+            CsvRow tempEvent = flightPlan[i];
+            waitingEventsID_Flightplan.Enqueue(tempEvent);
+            Debug.Log(waitingEventsID_Flightplan.Count);
+
+        }
+        Debug.Log("------");
+        Debug.Log(waitingEventsID_Flightplan.Count);
+        Debug.Log("------");
+
+
         // Not sure what this done
         AVE_TIME = Utility.AVGTIME;
 
@@ -312,6 +282,10 @@ public class TrafficControl : MonoBehaviour
             eventTimer = 0;
             //Debug.Log("New Event Attempt");
 
+
+            //Populate waitingEventsID_Flightplan instead.
+
+            /***
             if ((waitingEventsId.Count + ongoingEventsId.Count < shelves.Length - 1) || (waitingEventsID_Flightplan.Count + ongoingEventsId.Count < shelves.Length - 1))
             {
                 //  Debug.Log("New Event Created");
@@ -343,7 +317,10 @@ public class TrafficControl : MonoBehaviour
                     waitingEventsId.Add(newIdx);
                 }
             }
+            ***/
         }
+
+        Debug.LogFormat("{0}, {1}, {2}", totalEventCounter, availableDronesId.Count, waitingEventsID_Flightplan.Count);
 
         if (availableDronesId.Count > 0 && (waitingEventsId.Count > 0 || waitingEventsID_Flightplan.Count > 0))
         {
@@ -353,7 +330,7 @@ public class TrafficControl : MonoBehaviour
                 try
                 {
                     //new
-                    CsvRow e = waitingEventsID_Flightplan.Next();
+                    CsvRow e = waitingEventsID_Flightplan.Peek();
                     int eventId = e.eventID;
                     int droneId = e.droneID;
                     int startingLaunchpadId = e.startingLaunchpadPos;
@@ -391,7 +368,7 @@ public class TrafficControl : MonoBehaviour
 
                             availableDronesId.Remove(d);
                             workingDronesId.Add(d);
-                            waitingEventsID_Flightplan.Remove(e);
+                            waitingEventsID_Flightplan.Dequeue();
                             ongoingEventsId.Add(eventId);
 
                             totalEventCounter++;
@@ -434,7 +411,7 @@ public class TrafficControl : MonoBehaviour
 
                         availableDronesId.Remove(d);
                         workingDronesId.Add(d);
-                        waitingEventsID_Flightplan.Remove(e);
+                        waitingEventsID_Flightplan.Dequeue();
                         ongoingEventsId.Add(eventId);
 
                         totalEventCounter++;
