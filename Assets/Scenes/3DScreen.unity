@@ -2356,6 +2356,7 @@ MonoBehaviour:
   UI_EnableArrows: 1
   UI_EnableLineRender: 1
   UI_EnableWarning: 1
+  UI_Warning_Bound: 6
   Interact_SafeTime: 3
   Interact_Pause: 0
   Interact_GreenBubble: 0
@@ -2374,6 +2375,8 @@ MonoBehaviour:
   RedBubble: {fileID: 2100000, guid: 0489efcc705432747b4b67746f4134d3, type: 2}
   GreenBubble: {fileID: 2100000, guid: 22710cdad5616a948b16f87ab2e58563, type: 2}
   NoBubble: {fileID: 2100000, guid: def8c0730149a4a47a3a61cc78f48c8e, type: 2}
+  NoEvent: {fileID: 2100000, guid: 7b41ce0cf4881e942b22b126c24cac74, type: 3}
+  BlueEvent: {fileID: 2100000, guid: e23be23c5b0df1e44ba1125dbcc43db6, type: 2}
   EXIT_TIME: 180
   timeCounter: 0
   MAX_SEED: 100
