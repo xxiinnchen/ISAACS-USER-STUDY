@@ -13,6 +13,7 @@ public class Drone
     public Vector3 eventPos;
     public Vector3 spawnPos;
     public Vector3 curPos;
+    public Vector3 prevPos;
     public Vector3 dstPos;
     public Vector3 direction;
     public Vector3 epsilon = new Vector3(0.1f, 0.1f, 0.1f);
@@ -28,24 +29,27 @@ public class Drone
     public int collionDroneId = -2;
     public int nextEvent = -2;
     public float tripTime = 0;
-    public bool safe = false;
     public float collidesAtTime;
-    public bool isPaused;
 
-    public bool EnableArrows = true;
+    // Drone Status
     public enum SafetyStatus
     {
         NOT_SAFE = 0,
         TO_SAFE_ZONE = 1,
         SAFE = 2,
-        TO_NONSAFE_ZONE = 3
     }
-    public SafetyStatus safetyStatus; // 0: not safe, 1: flying to safe zone, 2: safe, 3: flying to non-safe zone
-    public int safeFlightTime = 2;
-    public int safetySpeedMultiplier = 3;
-    public float safetyFlightStartTime;
+    public SafetyStatus safetyStatus = SafetyStatus.NOT_SAFE;
 
-    public int pauseCounter;
+    public enum DroneInteraction
+    {
+        NO_INTERACTION = 0,
+        PAUSED = 1,
+        GREEN_BUBBLE = 2,
+        FLY_UP = 3,
+        FLY_UP_DIAGONAL = 4
+    }
+    public DroneInteraction droneInteraction = DroneInteraction.NO_INTERACTION;
+
     public enum DroneStatus
     {
         PARKED = 0,
@@ -54,39 +58,56 @@ public class Drone
         DELAY = 3,
     }
     public DroneStatus status;
-    public bool isCollided;
-    public bool isWarning;
 
-    // public static float SPEED = Utility.DRONE_SPEED;   // private static readonly float SPEED = 0.07f;
 
-    // Pause Variables
-    public static int pauseTime = 100;
-    public static float clickTime = 0;
-    public static float wrongClickTime = 0;
-    public float safetyTime = 3.0f;
+
+    // UI Features
+    public bool EnableArrows = true;
+    public bool EnableBubble = false;
 
     // Arrow Variables
     public GameObject arrows1;
     public GameObject arrows2;
     public GameObject ring;
-    public GameObject ring_2;
-    public GameObject shatter;
     private readonly Vector3 arrowOffset1 = new Vector3(0f, 0f, 0f);
     private readonly Vector3 arrowOffset2 = new Vector3(0f, 0f, 0.1412f);
 
+    // Bubble Variables
+    public GameObject interactionBubble;
+    public GameObject warningBubble;
+
+
+
+    // TODO
+    public int safeFlightTime = 2;
+    public int safetySpeedMultiplier = 3;
+    public float safetyFlightStartTime;
+    public bool isCollided;
+
+
+    // Pause Variables
+    public static int pauseTime = 100;
+    public static float clickTime = 0;
+    public static float wrongClickTime = 0;
+    public float safetyTime = TrafficControl.worldobject.GetComponent<TrafficControl>().Interact_SafeTime;
+
+    /// <summary>
+    /// Initialize drone
+    /// </summary>
+    /// <param name="droneId"></param>
+    /// <param name="initPos"></param>
     public Drone(int droneId, Vector3 initPos)
     {
+        // Setup initial drone properties
         this.droneId = droneId;
-        this.isPaused = false;
         this.safetyStatus = SafetyStatus.NOT_SAFE;
         this.parkingPos = this.curPos = initPos;
         this.hoverPos = this.parkingPos + hoverShift;
         this.status = DroneStatus.PARKED;
-        this.isWarning = false;
         this.isCollided = false;
 
-        // create game object
-        // Debug.Log("Created new drone with id: " + droneId);
+
+        // Create and assign prefab
         GameObject baseObject = TrafficControl.worldobject.GetComponent<TrafficControl>().droneBaseObject;
         gameObjectPointer = UnityEngine.Object.Instantiate(baseObject, initPos, Quaternion.identity);
         gameObjectPointer.GetComponent<DroneProperties>().classPointer = this;
@@ -96,16 +117,19 @@ public class Drone
         // gameObjectPointer.gameObject.tag = string.Concat("Drone", droneId.ToString());
         gameObjectPointer.transform.parent = TrafficControl.worldobject.transform;
 
+        // Find and assign Arrow 1 Prefab
         GameObject arrow1 = gameObjectPointer.GetComponent<DroneProperties>().Arrows;
         arrows1 = UnityEngine.Object.Instantiate(arrow1, initPos, Quaternion.Euler(0f, -90f, 0f));
         arrows1.transform.parent = TrafficControl.worldobject.transform;
+
+        // Find and assign Arrow 2 Prefab
         GameObject arrow2 = gameObjectPointer.GetComponent<DroneProperties>().Arrows;
         arrows2 = UnityEngine.Object.Instantiate(arrow2, initPos, Quaternion.Euler(0f, -270f, 0f));
         arrows2.transform.parent = TrafficControl.worldobject.transform;
-        arrows1.SetActive(false);
-        arrows2.SetActive(false);
-        ring_2 = gameObjectPointer.transform.Find("warningSphere").gameObject;
 
+        // Find and assign Bubble Prefabs
+        this.interactionBubble = gameObjectPointer.GetComponent<DroneProperties>().InteractionBubble;
+        this.warningBubble = gameObjectPointer.GetComponent<DroneProperties>().WarningBubble;
 
         try
         {
@@ -123,6 +147,10 @@ public class Drone
 
     public void AddEvent(Event e)
     {
+        this.gameObjectPointer.SetActive(true);
+        this.EnableArrows = true;
+        this.interactionBubble.GetComponent<MeshRenderer>().material = this.gameObjectPointer.GetComponent<DroneProperties>().NoBubble;
+
         status = DroneStatus.TAKEOFF;
         dstPos = hoverPos;
         eventPos = e.pos;
@@ -130,43 +158,41 @@ public class Drone
         eventId = e.shelfId;
     }
 
-    // new code start
+    public void Interact_Pause()
+    {
+        safetyStatus = SafetyStatus.SAFE;
+        safetyFlightStartTime = Time.time;
+        droneInteraction = DroneInteraction.PAUSED;
+    }
+    public void Interact_GreenBubble()
+    {
+        safetyStatus = SafetyStatus.SAFE;
+        safetyFlightStartTime = Time.time;
+        this.interactionBubble.GetComponent<MeshRenderer>().material = this.gameObjectPointer.GetComponent<DroneProperties>().GreenBubble;
+        droneInteraction = DroneInteraction.GREEN_BUBBLE;
 
-    public void RaiseDrone()
+    }
+    public void Interact_FlyUp()
     {
         safetyStatus = SafetyStatus.TO_SAFE_ZONE;
-        //Debug.Log("Raising Drone");
+        droneInteraction = DroneInteraction.FLY_UP;
     }
-
-    public void LowerDrone()
+    public void Interact_FlyUpDiagonal()
     {
-        safetyStatus = SafetyStatus.TO_NONSAFE_ZONE;
-        //Debug.Log("Lowering Drone");
+        safetyStatus = SafetyStatus.TO_SAFE_ZONE;
+        droneInteraction = DroneInteraction.FLY_UP_DIAGONAL;
     }
-
-    // new code end
-
-    public void SetDronePause()
+    
+    public void UI_Warning(bool warning)
     {
-        isPaused = true;
-        pauseCounter = pauseTime;
-
-        GameObject ring = this.gameObjectPointer.transform.Find("protectionSphere").gameObject;
-
-        // Update user click info
-        if (!isWarning)
-            wrongClickTime++;
-        clickTime++;
-    }
-
-    public void SetDroneRestart()
-    {
-        // Update user click info
-        if (!isPaused)
-            wrongClickTime++;
-        clickTime++;
-
-        isPaused = false;
+        if (warning)
+        {
+            warningBubble.GetComponent<MeshRenderer>().material = this.gameObjectPointer.GetComponent<DroneProperties>().PurpleBubble;
+        }
+        else
+        {
+            warningBubble.GetComponent<MeshRenderer>().material = this.gameObjectPointer.GetComponent<DroneProperties>().NoBubble;
+        }
     }
 
     public enum MoveStatus
@@ -187,21 +213,12 @@ public class Drone
     public MoveStatus Move()
     {
         MoveStatus flag = MoveStatus.OTHER;
-        if (isPaused)
-        {
-            // if (pauseCounter-- == 0)
-            // {
-            //     isPaused = false;
-            // }
-            return flag;
-        }
-        // curPos = status == 0 ? gameObjectPointer.transform.position : gameObjectPointer.transform.position + direction * SPEED;
-        // direction = Utility.shelves[eventId] - curPos;
-        // direction = GameObject.Find("Event" + eventId.ToString()).transform.position - curPos;
-        curPos = status == DroneStatus.PARKED ? curPos : curPos + direction * SPEED;
-        // Debug.Log("Move drone " + droneId + " with dir: " + direction + " to pos: " + curPos);
 
-        // New Code
+
+        prevPos = curPos;
+        curPos = status == DroneStatus.PARKED ? curPos : curPos + direction * SPEED;
+
+
         if (safetyStatus == SafetyStatus.TO_SAFE_ZONE)
         {
             if (curPos.y >= 30.0f)
@@ -211,38 +228,44 @@ public class Drone
             }
             else
             {
-                //Directionally Upward:
-                curPos = curPos + new Vector3(0, SPEED * safetySpeedMultiplier, 0);
-
-                // Straight Upward:
-                //Vector3 orgPos = curPos - direction * SPEED;
-                //curPos = orgPos + new Vector3(0, SPEED*safetySpeedMultiplier, 0);
+                if (droneInteraction == DroneInteraction.FLY_UP_DIAGONAL)
+                {
+                    curPos = curPos + new Vector3(0, SPEED * safetySpeedMultiplier, 0);
+                }
+                if (droneInteraction == DroneInteraction.FLY_UP)
+                {
+                    Vector3 orgPos = curPos - direction * SPEED;
+                    curPos = orgPos + new Vector3(0, SPEED*safetySpeedMultiplier, 0);
+                }
             }
         }
         else if (safetyStatus == SafetyStatus.SAFE)
         {
-            //Debug.Log("Safe zone");
             if (Time.time - safetyFlightStartTime > safetyTime)
             {
-                safetyStatus = SafetyStatus.TO_NONSAFE_ZONE;
+                safetyStatus = SafetyStatus.NOT_SAFE;
+                this.interactionBubble.GetComponent<MeshRenderer>().material = this.gameObjectPointer.GetComponent<DroneProperties>().NoBubble;
                 safetyFlightStartTime = 0;
             }
             else
             {
-                Vector3 orgPos = curPos - direction * SPEED;
-                curPos = orgPos + new Vector3(direction.x * SPEED, 0, direction.z * SPEED);
+                if (droneInteraction == DroneInteraction.PAUSED)
+                {
+                    curPos = prevPos;
+                }
+                if (droneInteraction == DroneInteraction.FLY_UP)
+                {
+                    Vector3 orgPos = curPos - direction * SPEED;
+                    curPos = orgPos + new Vector3(direction.x * SPEED, 0, direction.z * SPEED);
+                }
+                if (droneInteraction == DroneInteraction.FLY_UP_DIAGONAL)
+                {
+                    Vector3 orgPos = curPos - direction * SPEED;
+                    curPos = orgPos + new Vector3(direction.x * SPEED, 0, direction.z * SPEED);
+                }
             }
 
         }
-        else if (safetyStatus == SafetyStatus.TO_NONSAFE_ZONE)
-        {
-            //Debug.Log("Non-safe zone");
-            if (curPos.y < 30.0f)
-            {
-                safetyStatus = SafetyStatus.NOT_SAFE;
-            }
-        }
-
 
         // End of New code
 
@@ -273,16 +296,19 @@ public class Drone
                 flag = MoveStatus.END_TO_SHELF;
             }
         }
-        gameObjectPointer.transform.position = curPos;
-        // gameObjectPointer.transform.rotation = Quaternion.identity;
-        // gameObjectPointer.transform.rotation = TrafficControl.worldobject.transform.rotation;
 
+        gameObjectPointer.transform.position = curPos;
+       
         if (EnableArrows)
         {
             DisplayArrow();
         }
-
-
+        else
+        {
+            arrows1.SetActive(false);
+            arrows2.SetActive(false);
+        }
+        
         return flag;
     }
 
@@ -327,11 +353,11 @@ public class Drone
         ring = this.gameObjectPointer.transform.Find("protectionSphere").gameObject;
         if (collided == true)
         {
-            ring.GetComponent<MeshRenderer>().material = this.gameObjectPointer.GetComponent<DroneProperties>().collideMaterial;
+            ring.GetComponent<MeshRenderer>().material = this.gameObjectPointer.GetComponent<DroneProperties>().BlueBubble;
         }
         else
         {
-            ring.GetComponent<MeshRenderer>().material = this.gameObjectPointer.GetComponent<DroneProperties>().landingMaterial;
+            ring.GetComponent<MeshRenderer>().material = this.gameObjectPointer.GetComponent<DroneProperties>().NoBubble;
         }
     }
 
@@ -347,17 +373,6 @@ public class Drone
         shatterObject.tag = "shatter";
     }*/
 
-    public void WarningRender(bool collided)
-    {
-        if (collided == true)
-        {
-            ring_2.GetComponent<MeshRenderer>().material = this.gameObjectPointer.GetComponent<DroneProperties>().warningMaterial;
-        }
-        else
-        {
-            ring_2.GetComponent<MeshRenderer>().material = this.gameObjectPointer.GetComponent<DroneProperties>().landingMaterial;
-        }
-    }
 
     public float CalAveTime(Vector3[] shelf, float deltaTime)
     {

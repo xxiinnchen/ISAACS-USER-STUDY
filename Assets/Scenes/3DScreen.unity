@@ -2347,21 +2347,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FlightPathProvided: 1
-  ForceCSV_CollisionBound: 0
-  ForceCSV_Time: 0
-  OriginalCSV: 0
-  Colliders: 1
+  CollisionLogic_CustomBound: 1
+  CollisionLogic_CustomBound_Dist: 5
+  CollisionLogic_Time: 0
+  CollisionLogic_Colliders: 0
+  CollisionLogic_Original: 0
+  Collision_DuringTakeoff: 0
+  UI_EnableArrows: 1
+  UI_EnableLineRender: 1
+  UI_EnableWarning: 1
+  Interact_SafeTime: 3
+  Interact_Pause: 0
+  Interact_GreenBubble: 0
+  Interact_FlyUp: 0
+  Interact_FlyUpDiagonal: 1
+  OnCollision_Disappear: 0
+  OnCollision_RedBubble: 1
   FlightDebugTrip: 1
   FlightDebugCol: 0
   FlightPlanDebug: 0
-  EnableArrows: 1
-  EnableLineRender: 1
-  EnableWarning: 0
-  EnableSafeZoneTravel: 0
+  TextDebug: 0
   droneBaseObject: {fileID: 5791554476043166253, guid: fce03e028fdfa471698e6458dfa0e924,
     type: 3}
   eventBaseObject: {fileID: 3970490789472895448, guid: fb5ffaa665ebc4091bc17d2ff8d27a8e,
     type: 3}
+  RedBubble: {fileID: 2100000, guid: 0489efcc705432747b4b67746f4134d3, type: 2}
+  GreenBubble: {fileID: 2100000, guid: 22710cdad5616a948b16f87ab2e58563, type: 2}
+  NoBubble: {fileID: 2100000, guid: def8c0730149a4a47a3a61cc78f48c8e, type: 2}
   EXIT_TIME: 180
   timeCounter: 0
   MAX_SEED: 100

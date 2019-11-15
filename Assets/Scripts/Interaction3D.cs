@@ -57,18 +57,7 @@ public class Interaction3D : MonoBehaviour
 
                     TotalClicks++;
 
-                    if (curDrone.GetComponent<DroneProperties>().classPointer.safetyStatus == Drone.SafetyStatus.NOT_SAFE) // 0: not safe zone
-                    {
-                        curDrone.GetComponent<DroneProperties>().classPointer.RaiseDrone();
-                    }
-                    else if (curDrone.GetComponent<DroneProperties>().classPointer.safetyStatus == Drone.SafetyStatus.SAFE) // 2: safe zone
-                    {
-                        curDrone.GetComponent<DroneProperties>().classPointer.LowerDrone();
-                    }
-                    else
-                    {
-                        Debug.Log("Current status: " + curDrone.GetComponent<DroneProperties>().classPointer.safetyStatus);
-                    }
+                    TrafficControl.worldobject.GetComponent<TrafficControl>().OnClick(curDrone);
 
 
                     /* Original code

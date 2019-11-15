@@ -6,21 +6,30 @@ public class DroneProperties : MonoBehaviour
 {
 
     public Drone classPointer;
+
+    // Prefab pointers
     public GameObject Arrows;
     public GameObject shatteredDrone;
-    public Material warningMaterial;
-    public Material landingMaterial;
-    public Material collideMaterial;
+    public GameObject InteractionBubble;
+    public GameObject WarningBubble;
+
+    // Materials
+    public Material PurpleBubble;
+    public Material BlueBubble;
+    public Material RedBubble;
+    public Material GreenBubble;
+    public Material NoBubble;
+
     public MeshRenderer meshRend;
+
     public bool EnableLineRender = true;
     private int LineCount = 0;
     private const int LINERENDER = 10;
+
     // Start is called before the first frame update
+
     void Start()
     {
-        // ring_2 = this.transform.Find("warningSphere").gameObject;
-        //meshRend = GetComponent<MeshRenderer>();
-        //meshRend.enabled = true;
         classPointer.SPEED = Utility.DRONE_SPEED;
     }
 
@@ -33,19 +42,9 @@ public class DroneProperties : MonoBehaviour
             DrawLine(curPos + 95 * Utility.DRONE_SPEED * classPointer.direction, curPos + 100 * Utility.DRONE_SPEED * classPointer.direction);
         }
 
-
-        //if (classPointer.isCollided == true)
-        //{
-        //    Debug.Log("id" + classPointer.droneId);
-        //    Debug.Log("status" + classPointer.status);
-        //    Debug.Log("Collide Effect!");
-
-        //    Instantiate(shatteredDrone, transform.position, transform.rotation);
-
-        //    classPointer.isCollided = false;
-        //}
         LineCount++;
     }
+
     public void DrawLine(Vector3 start, Vector3 end, float duration = 1.5f)
     {
         GameObject myLine = new GameObject();

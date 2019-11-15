@@ -53,14 +53,7 @@ public class Interaction2D : MonoBehaviour
                 // check mouse click
                 if (Input.GetMouseButtonDown(0))
                 {
-                    if (!curDrone.GetComponent<DroneProperties>().classPointer.isPaused)
-                    {
-                        curDrone.GetComponent<DroneProperties>().classPointer.SetDronePause();
-                    }
-                    else
-                    {
-                        curDrone.GetComponent<DroneProperties>().classPointer.SetDroneRestart();
-                    }
+                    TrafficControl.worldobject.GetComponent<TrafficControl>().OnClick(curDrone);
                 }
 
                 if (prevDrone == null)
