@@ -78,6 +78,7 @@ public class TrafficControl : MonoBehaviour
     public static Dictionary<int, float> eventColTimeDict = new Dictionary<int, float>();
 
     public OrderedSet<int> waitingEventsId = new OrderedSet<int>();
+    public Queue<CsvRow> allFlightPlan = new Queue<CsvRow>();
     public Queue<CsvRow> waitingEventsID_Flightplan = new Queue<CsvRow>();
     public HashSet<int> ongoingEventsId = new HashSet<int>();
 
@@ -337,7 +338,8 @@ public class TrafficControl : MonoBehaviour
         for(int i = 0; i < flightPlan.Count; i++)
         {
             CsvRow tempEvent = flightPlan[i];
-            waitingEventsID_Flightplan.Enqueue(tempEvent);
+
+            allFlightPlan.Enqueue(tempEvent);
         }
 
         // Not sure what this done
@@ -370,20 +372,27 @@ public class TrafficControl : MonoBehaviour
         /// Initilize new event randomly every EVENT_INTERVAL.
         /// We pre-populate all events if we have a CSV so this function is not needed then. 
         /// </summary>
-        if (eventTimer > EVENT_INTERVAL & !FlightPathProvided)
+        if (eventTimer > EVENT_INTERVAL)
         {
-            // Reset eventTimer
+            // Reset eventTimer 
             eventTimer = 0;
 
-            /// <summary>
-            /// Check that there are more drones than events.
-            /// </summary>
-            if ((waitingEventsId.Count + ongoingEventsId.Count < shelves.Length - 1) || (waitingEventsID_Flightplan.Count + ongoingEventsId.Count < shelves.Length - 1))
+            if (FlightPathProvided)
             {
+                CsvRow tempEvent = allFlightPlan.Dequeue();
+                waitingEventsID_Flightplan.Enqueue(tempEvent);
+            } else
+            {
+                /// <summary>
+                /// Check that there are more drones than events.
+                /// </summary>
+                if ((waitingEventsId.Count + ongoingEventsId.Count < shelves.Length - 1) || (waitingEventsID_Flightplan.Count + ongoingEventsId.Count < shelves.Length - 1))
+                {
                     int newIdx = GenRandEvent();
                     waitingEventsId.Add(newIdx);
+                }
             }
-        }
+        } 
 
         /// <summary>
         /// Assign avaliable event to avaliable drones
